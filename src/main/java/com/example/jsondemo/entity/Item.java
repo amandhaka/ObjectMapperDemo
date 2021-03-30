@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Data
 @Entity(name = "ItemAreaStockZone")
@@ -26,6 +27,12 @@ public class Item {
     private Double doi;
 
     private Long qtyToReachDoi;
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, itemCode, areaCode, zoneCode, demand, inventory, doi, qtyToReachDoi);
+    }
 
     @Override
     public String toString() {
